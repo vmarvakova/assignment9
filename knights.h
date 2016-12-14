@@ -51,12 +51,11 @@ pair<Path,bool> first_tour(int sizeBoard,Path path){
     {path,true};
     
     else {
+        
         if (newMoves.size()!=0){
             
-            auto iter=newMoves.begin();
             auto iterEnd = newMoves.end();
-            while(iter!=iterEnd){
-        //for
+            for(auto iter=newMoves.begin();iter!=iterEnd;){
                 newPath.push_back(*iter);
                 
                 pair<Path,bool> newTour=first_tour(sizeBoard,newPath);

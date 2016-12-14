@@ -15,19 +15,26 @@ using std::vector;
 
 
 //vector<int>coins;
-vector<int>::iterator iter;
-int howManyWaysToMake(const std::list<unsigned> &coins, int change){
-    //    int howManyWaysToMake(int coinSizes,vector<int>coin)
-    //begin and end iterator, over a range of coins
-    int ha =0;
-//    vector<int> table(coinSizes+1,0);
-//    
-//    table[0] = 1;
-//    for ( auto& k : coin )      //instead of for all_of
-//        for(int j=k; j<=coinSizes; ++j)
-//            table[j] += table[j-k];
-//    int ha = table[coinSizes];
-  return ha;
+template<typename T >
+int howManyWaysToMake(const T & begin, const T & end,int amount){
+    int count = 0;
+    vector<int> table(amount+1,0);
+    
+    table[0] = 1;
+    
+    //
+    //    table[0] = 1;
+    //  for(int j=*begin; j<=*end; ++j)
+    int j=*begin;
+    if(j<=*end)
+        j++;
+    int ha = table[j];
+    table[j] += table[j-*begin];
+    
+    cout<<table[j]<<endl;
+    return table[j];
+    
+    
     
 }
 // Do not write any code below this line
